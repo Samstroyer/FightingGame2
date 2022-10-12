@@ -14,14 +14,6 @@ public enum MenuScreens
 
 }
 
-public enum GameState
-{
-    Menu,
-    Explorer,
-    Fight,
-    Inventory
-}
-
 public class Engine
 {
     private MenuScreens currentMenu;
@@ -29,16 +21,19 @@ public class Engine
     private int midX, midY;
     private bool playing = false;
 
+    private Game game;
+
     public DateTime Started { get; private set; }
 
     public Engine()
     {
         Started = DateTime.Now;
         currentMenu = MenuScreens.Start;
-        currentState = GameState.Menu;
 
         midX = (int)(Raylib.GetScreenWidth() / 2);
         midY = (int)(Raylib.GetScreenHeight() / 2);
+
+        game = new();
     }
 
     public void Run()
@@ -47,7 +42,7 @@ public class Engine
         {
             if (playing)
             {
-
+                game.Start();
             }
             else
             {
@@ -90,8 +85,7 @@ public class Engine
                     Raylib.DrawRectangleRec(nextButton, Color.DARKGRAY);
                     if (Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT))
                     {
-                        // Something like this i guess
-                        // currentState = GameState.Explorer;
+                        playing = true;
                     }
                 }
                 else

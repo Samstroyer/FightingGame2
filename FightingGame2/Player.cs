@@ -2,7 +2,8 @@ using System;
 
 public class Player : Entity
 {
-    private int money;
+    public int money { get; set; }
+    public List<WeaponBase> weaponBackpack { get; private set; } // Works: weapons.Add(new MeeleWeapon()); - - weapons.Add(new RangedWeapon());
 
     public Player()
     {
@@ -10,4 +11,14 @@ public class Player : Entity
     }
 
 
+
+
+}
+
+public class Inventory
+{
+    public Inventory()
+    {
+
+    }
 }

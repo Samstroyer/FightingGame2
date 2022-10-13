@@ -2,5 +2,6 @@ using System;
 
 public class Enemy : Entity
 {
-    //drops
+    public int x;
+    //drops + more
 }

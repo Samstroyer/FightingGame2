@@ -2,11 +2,7 @@ using System;
 
 public class Entity
 {
-    public string name;
-    public int lvl;
-    public int hp;
-    private List<WeaponBase> weapons;
-    // Works
-    // weapons.Add(new MeeleWeapon());
-    // weapons.Add(new RangedWeapon());
+    public string name { get; private set; }
+    public int lvl { get; private set; }
+    public int hp { get; private set; }
 }

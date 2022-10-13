@@ -78,6 +78,10 @@ class Game
         if (Raylib.CheckCollisionPointRec(mouseCords, newGameButton))
         {
             Raylib.DrawRectangleRec(newGameButton, Color.DARKGRAY);
+            if (Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT))
+            {
+                p = new();
+            }
         }
         else
         {
@@ -106,19 +110,23 @@ class Game
             offset = Raylib.MeasureText("No saves detected!", 30);
             Raylib.DrawText("No saves detected!", 10, 375, 26, Color.RED);
 
-            Rectangle checkButton = new(mid.x, 30, 150, 50);
-            //FIXIFIFIXIFIXIFIFXI
-            // Rectangle loadButton = new(mid.x - 150, mid.y, 300, 50);
-            // if (Raylib.CheckCollisionPointRec(mouseCords, loadButton))
-            // {
-            //     Raylib.DrawRectangleRec(loadButton, Color.DARKGRAY);
-            // }
-            // else
-            // {
-            //     Raylib.DrawRectangleRec(loadButton, Color.GRAY);
-            // }
-            // offset = Raylib.MeasureText("Load Game", 30);
-            // Raylib.DrawText("Load Game", mid.x - offset / 2, mid.y + 10, 30, Color.BLACK);
+            Rectangle checkButton = new(275, 375, 100, 20);
+            if (Raylib.CheckCollisionPointRec(mouseCords, checkButton))
+            {
+                if (Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT))
+                {
+                    Console.WriteLine("Started checking for saves!");
+                    CheckForSaves();
+                }
+                Raylib.DrawRectangleRec(checkButton, Color.DARKGRAY);
+            }
+            else
+            {
+                Raylib.DrawRectangleRec(checkButton, Color.GRAY);
+            }
+
+            offset = Raylib.MeasureText("Update", 18);
+            Raylib.DrawText("Update", 270 + offset / 2, 377, 18, Color.BLACK);
         }
 
 

@@ -15,6 +15,7 @@ class Game
     public bool playing { get; private set; }
     public (int x, int y) mid { get; private set; }
 
+    private World world;
     private Player p;
     private bool hasSaves;
 
@@ -25,7 +26,9 @@ class Game
         hasSaves = CheckForSaves();
 
         mid = new(Raylib.GetScreenWidth() / 2, Raylib.GetScreenHeight() / 2);
+        world = new();
     }
+
 
     public void Start()
     {
@@ -35,7 +38,7 @@ class Game
             switch (state)
             {
                 case GameState.Explorer:
-                    //Explorer();
+                    world.Run();
                     break;
                 case GameState.Inventory:
                     //Explorer();

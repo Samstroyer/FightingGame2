@@ -1,6 +1,6 @@
 ﻿using Raylib_cs;
 
-//Game made by me: Samuel Palmer
+//Game made by me: Samuel Palmér
 //This is a test of my sanity + some programming stuff, 
 //but everything is possible in programming if you are willing to spend some time...
 //That amount of time can sometimes get a lot... so well, lets see if I will make it!

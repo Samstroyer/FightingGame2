@@ -81,6 +81,7 @@ class Game
             if (Raylib.IsMouseButtonPressed(MouseButton.MOUSE_BUTTON_LEFT))
             {
                 p = new();
+                //Start game
             }
         }
         else
